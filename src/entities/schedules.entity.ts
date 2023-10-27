@@ -1,6 +1,6 @@
 import { Entity } from "typeorm";
 
-@Entity('users')
-export default class User{
+@Entity('schedules')
+export default class Schedule{
     
 }
