@@ -19,6 +19,6 @@ export default class Schedule {
   @ManyToOne(() => RealEstate, (re) => re.id)
   realEstate: RealEstate;
 
-  @ManyToOne(() => User, (u) => u.id)
+  @ManyToOne(() => User, (u) => u.shedule, {onDelete: 'CASCADE'})
   user: User;
 }
