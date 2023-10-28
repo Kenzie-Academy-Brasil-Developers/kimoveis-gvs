@@ -13,5 +13,5 @@ export default class Address{
     @Column({length: 20, nullable: false})
     city:string
     @Column({length: 2,nullable: false})
-    sate: string
+    state: string
 }
