@@ -2,6 +2,7 @@ import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, Prima
 import Address from "./addresses.entity";
 import Category from "./categories.entity";
 import Schedule from "./schedules.entity";
+import Categorie from "./categories.entity";
 
 @Entity('realEstates')
 export default class RealEstate{
@@ -24,6 +25,6 @@ export default class RealEstate{
     @OneToOne(() => Address , (address) => address.realEstate )
     address: Address
     
-    @ManyToOne(() => Category , (c) => c.id)
-    category: Category
+    @ManyToOne(() => Categorie , (categorie) => categorie.id)
+    category: Categorie
 }   
