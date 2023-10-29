@@ -21,7 +21,7 @@ export default class RealEstate{
     @OneToMany(()=> Schedule , (shedule) => shedule.realEstate)
     shedule: Array<Schedule>
 
-    @OneToOne(() => Address , (a) => a.id )
+    @OneToOne(() => Address , (address) => address.realEstate )
     address: Address
     
     @ManyToOne(() => Category , (c) => c.id)
