@@ -16,7 +16,7 @@ export default class Schedule {
   @Column("int")
   userId: number;
 
-  @ManyToOne(() => RealEstate, (re) => re.id)
+  @ManyToOne(() => RealEstate, (realEstate) => realEstate.shedule)
   realEstate: RealEstate;
 
   @ManyToOne(() => User, (user) => user.shedule, {onDelete: 'CASCADE'})
