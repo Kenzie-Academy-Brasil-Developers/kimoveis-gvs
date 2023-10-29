@@ -13,11 +13,11 @@ export default class User{
     admin: boolean
     @Column({nullable: false, length: 120})
     password: string
-    @CreateDateColumn({type: "date", nullable: false})
+    @CreateDateColumn({type: "date"})
     createdAt: string
-    @UpdateDateColumn({type: "date", nullable: false})
+    @UpdateDateColumn({type: "date"})
     updatedAt: string
-    @DeleteDateColumn({type: "date"})
+    @DeleteDateColumn({type: "date", nullable: true})
     deletedAt: string | null
     @OneToMany(() => Schedule, (b) => b.user)
     shedule: Array<Schedule>
