@@ -19,6 +19,6 @@ export default class User{
     updatedAt: string
     @DeleteDateColumn({type: "date", nullable: true})
     deletedAt: string | null
-    @OneToMany(() => Schedule, (b) => b.user)
+    @OneToMany(() => Schedule, (schedules) => schedules.user)
     shedule: Array<Schedule>
 }
