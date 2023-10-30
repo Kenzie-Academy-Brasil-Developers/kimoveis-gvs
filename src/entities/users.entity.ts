@@ -8,9 +8,10 @@ export default class User{
 
     @Column({length: 45, nullable: false})
     name: string
-    
+
     @Column({length: 45, nullable: false, unique: true})
     email: string
+    
     @Column({nullable: false, default: false})
     admin: boolean
     @Column({nullable: false, length: 120})
