@@ -14,9 +14,10 @@ export default class Address{
 
     @Column({nullable: false})
     number: number
-    
+
     @Column({length: 20, nullable: false})
     city:string
+    
     @Column({length: 2,nullable: false})
     state: string
     @OneToOne(() => RealEstate, (realEstate) => realEstate.address)
