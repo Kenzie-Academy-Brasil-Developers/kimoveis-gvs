@@ -17,9 +17,10 @@ export default class RealEstate{
 
     @Column({nullable:false})
     size: number
-    
+
     @CreateDateColumn({type: 'date', nullable: false})
     createdAt: string
+    
     @UpdateDateColumn({type: 'date',unique: true, nullable: false})
     updatedAt: string
 
