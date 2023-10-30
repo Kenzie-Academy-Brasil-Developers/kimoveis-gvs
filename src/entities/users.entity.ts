@@ -17,9 +17,10 @@ export default class User{
 
     @Column({nullable: false, length: 120})
     password: string
-    
+
     @CreateDateColumn({type: "date"})
     createdAt: string
+    
     @UpdateDateColumn({type: "date"})
     updatedAt: string
     @DeleteDateColumn({type: "date", nullable: true})
