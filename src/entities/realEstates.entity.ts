@@ -25,6 +25,6 @@ export default class RealEstate{
     @OneToOne(() => Address , (address) => address.realEstate )
     address: Address
     
-    @ManyToOne(() => Categorie , (categorie) => categorie.id)
+    @ManyToOne(() => Categorie , (categorie) => categorie.realEstate)
     category: Categorie
 }   
