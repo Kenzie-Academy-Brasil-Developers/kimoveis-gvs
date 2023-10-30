@@ -8,9 +8,10 @@ export default class Address{
 
     @Column({length: 45, nullable: false})
     street:string
-    
+
     @Column({length: 8, nullable: false})
     zipCode:string
+    
     @Column({nullable: false})
     number: number
     @Column({length: 20, nullable: false})
