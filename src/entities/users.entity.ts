@@ -5,6 +5,7 @@ import Schedule from "./schedules.entity";
 export default class User{
     @PrimaryGeneratedColumn('increment')
     id: number
+    
     @Column({length: 45, nullable: false})
     name: string
     @Column({length: 45, nullable: false, unique: true})
