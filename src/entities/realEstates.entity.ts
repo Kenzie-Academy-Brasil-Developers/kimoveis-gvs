@@ -1,6 +1,8 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import Address from "./addresses.entity";
 import Category from "./categories.entity";
+import Schedule from "./schedules.entity";
+import Categorie from "./categories.entity";
 
 @Entity('realEstates')
 export default class RealEstate{
@@ -16,8 +18,13 @@ export default class RealEstate{
     createdAt: string
     @UpdateDateColumn({type: 'date',unique: true, nullable: false})
     updatedAt: string
-    @OneToOne(() => Address , (a) => a.id )
+
+    @OneToMany(()=> Schedule , (shedule) => shedule.realEstate)
+    shedule: Array<Schedule>
+
+    @OneToOne(() => Address , (address) => address.realEstate )
     address: Address
-    @ManyToOne(() => Category , (c) => c.id)
-    category: Category
+    
+    @ManyToOne(() => Categorie , (categorie) => categorie.realEstate)
+    category: Categorie
 }   

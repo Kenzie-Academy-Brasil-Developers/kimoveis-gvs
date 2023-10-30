@@ -8,7 +8,7 @@ export default class Schedule {
   id: number;
 
   @Column({ type: "date" })
-  date: Date;
+  date: string;
 
   @Column({ type: "time" })
   hour: string;
@@ -16,9 +16,9 @@ export default class Schedule {
   @Column("int")
   userId: number;
 
-  @ManyToOne(() => RealEstate, (re) => re.id)
+  @ManyToOne(() => RealEstate, (realEstate) => realEstate.shedule)
   realEstate: RealEstate;
 
-  @ManyToOne(() => User, (u) => u.id)
+  @ManyToOne(() => User, (user) => user.shedule, {onDelete: 'CASCADE'})
   user: User;
 }
