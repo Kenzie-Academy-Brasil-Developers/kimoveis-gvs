@@ -8,6 +8,7 @@ import Categorie from "./categories.entity";
 export default class RealEstate{
     @PrimaryGeneratedColumn('increment')
     id:number 
+    
     @Column({nullable: false, default : false})
     sold: boolean
     @Column({ type: 'decimal', precision: 12, scale: 2, nullable: false, default: 0 })
