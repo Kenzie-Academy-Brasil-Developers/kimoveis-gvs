@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import Address from "./addresses.entity";
 import Category from "./categories.entity";
 import Schedule from "./schedules.entity";
@@ -28,6 +28,7 @@ export default class RealEstate{
     shedule: Array<Schedule>
 
     @OneToOne(() => Address , (address) => address.realEstate )
+    @JoinColumn()
     address: Address
     
     @ManyToOne(() => Categorie , (categorie) => categorie.realEstate)
