@@ -22,3 +22,4 @@ export default class Schedule {
   @ManyToOne(() => User, (user) => user.shedule, {onDelete: 'CASCADE'})
   user: User;
 }
+    
