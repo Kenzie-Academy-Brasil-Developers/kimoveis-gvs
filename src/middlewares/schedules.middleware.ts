@@ -19,8 +19,9 @@ export const verifyRealEstatesSchedulesExist = async (req: Request, res: Respons
     const { realEstateId, hour, date} = req.body
 
     const schedule = await schedulesRepo.findOneBy({realEstate: { id: Number(realEstateId)}, hour, date})
-    
+
     if(schedule) throw new AppError('Schedule to this Real Estate at this date and time already exists', 409 )
+    
     return next()
 }
 
