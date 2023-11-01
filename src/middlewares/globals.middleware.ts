@@ -10,6 +10,7 @@ export const verifyBody = (schema: ZodTypeAny) => (req: Request, res: Response, 
 
 export const verifyToken = (req: Request, res: Response, next: NextFunction) : void=> {
     const {authorization} = req.headers
+    
     if(!authorization) throw new AppError('Missing bearer token', 401)
     const token : string = authorization.split(' ')[1]
     const decoded = verify(token, process.env.SECRET_KEY!)
