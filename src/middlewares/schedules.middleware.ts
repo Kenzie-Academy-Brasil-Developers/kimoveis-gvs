@@ -31,7 +31,7 @@ export const verifyUserScheduleExists = async (req: Request, res: Response, next
     sub = Number(sub)
 
     const {hour, date} = req.body
-    
+
     const schedule : Schedule | null = await schedulesRepo.findOne({
         where: {
             user : {
@@ -41,6 +41,7 @@ export const verifyUserScheduleExists = async (req: Request, res: Response, next
             hour
         }
     }) 
+    
     if(schedule) throw new AppError('User to this Real Estate at this date and time already exists', 409 )
     return next()
 }
