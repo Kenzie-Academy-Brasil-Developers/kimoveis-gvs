@@ -21,12 +21,13 @@ export const verifyRealEstatesSchedulesExist = async (req: Request, res: Respons
     const schedule = await schedulesRepo.findOneBy({realEstate: { id: Number(realEstateId)}, hour, date})
 
     if(schedule) throw new AppError('Schedule to this Real Estate at this date and time already exists', 409 )
-    
+
     return next()
 }
 
 export const verifyUserScheduleExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     let {sub} = res.locals.decoded
+    
     sub = Number(sub)
     const {hour, date} = req.body
     const schedule : Schedule | null = await schedulesRepo.findOne({
