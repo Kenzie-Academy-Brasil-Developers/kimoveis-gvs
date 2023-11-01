@@ -27,8 +27,9 @@ export const verifyRealEstatesSchedulesExist = async (req: Request, res: Respons
 
 export const verifyUserScheduleExists = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     let {sub} = res.locals.decoded
-    
+
     sub = Number(sub)
+    
     const {hour, date} = req.body
     const schedule : Schedule | null = await schedulesRepo.findOne({
         where: {
