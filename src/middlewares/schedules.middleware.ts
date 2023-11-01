@@ -5,12 +5,13 @@ import { realEstateRepo, schedulesRepo } from "../repositories";
 
 export const verifyRealEstatesExist = async(req: Request, res: Response, next: NextFunction): Promise<void> => {
     const {realEstateId} = req.body
-    
+
     const realEstateExist : RealEstate | null = await realEstateId.findOne({
         where:{
             id: Number(realEstateId)
         }
     })
+    
     if(!realEstateExist) throw new AppError('Real Estate not found',404)
 
     return next()
