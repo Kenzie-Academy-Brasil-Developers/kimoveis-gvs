@@ -5,6 +5,7 @@ import { realEstateRepo, schedulesRepo } from "../repositories";
 
 export const verifyRealEstatesExist = async(req: Request, res: Response, next: NextFunction): Promise<void> => {
     const {realEstateId} = req.body
+    
     const realEstateExist : RealEstate | null = await realEstateId.findOne({
         where:{
             id: Number(realEstateId)
@@ -43,6 +44,6 @@ export const verifyUserScheduleExists = async (req: Request, res: Response, next
     }) 
 
     if(schedule) throw new AppError('User to this Real Estate at this date and time already exists', 409 )
-    
+
     return next()
 }
