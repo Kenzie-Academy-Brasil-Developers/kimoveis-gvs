@@ -16,7 +16,7 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) : v
     const token : string = authorization.split(' ')[1]
 
     const decoded = verify(token, process.env.SECRET_KEY!)
-    
+
     res.locals = {...res.locals, decoded}
 
     return next()
@@ -24,6 +24,7 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) : v
 
 export const verifyAdmin = (req: Request, res: Response, next: NextFunction) : void => {
     const {admin} = res.locals.decoded
+    
     if(!admin) throw new AppError('Insufficient permissions', 403)
 
     return next()
