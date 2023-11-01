@@ -13,9 +13,6 @@ export default class Schedule {
   @Column({ type: "time" })
   hour: string;
 
-  @Column("int")
-  userId: number;
-
   @ManyToOne(() => RealEstate, (realEstate) => realEstate.shedule)
   realEstate: RealEstate;
 
