@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { Address, RealEstate, Schedule } from "../entities";
 import AppError from "../errors/AppError.error";
-import { schedulesRepo } from "../repositories";
+import { realEstateRepo, schedulesRepo } from "../repositories";
 
 export const verifyRealEstatesExist = async(req: Request, res: Response, next: NextFunction): Promise<void> => {
     const {realEstateId} = req.body
@@ -17,15 +17,7 @@ export const verifyRealEstatesExist = async(req: Request, res: Response, next: N
 
 export const verifyRealEstatesSchedulesExist = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const { realEstateId, hour, date} = req.body
-    const schedule = await schedulesRepo.findOne({
-        where: {
-            realEstate : {
-                id : Number(realEstateId)
-            },
-            hour,
-            date
-        }
-    })
+    const schedule = await schedulesRepo.findOneBy({realEstate: { id: Number(realEstateId)}, hour, date})
     if(schedule) throw new AppError('Schedule to this Real Estate at this date and time already exists', 409 )
     return next()
 }
