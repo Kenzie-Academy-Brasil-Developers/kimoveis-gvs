@@ -41,7 +41,8 @@ export const verifyUserScheduleExists = async (req: Request, res: Response, next
             hour
         }
     }) 
-    
+
     if(schedule) throw new AppError('User to this Real Estate at this date and time already exists', 409 )
+    
     return next()
 }
