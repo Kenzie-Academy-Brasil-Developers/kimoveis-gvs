@@ -3,5 +3,5 @@ import { verifyAdmin, verifyBody, verifyToken } from "../middlewares/globals.mid
 import { verifyRealEstatesExist, verifyRealEstatesSchedulesExist, verifyUserScheduleExists } from "../middlewares/schedules.middleware";
 
 export const schedulesRoutes : Router = Router()
-schedulesRoutes.post('/', verifyBody, verifyRealEstatesExist, verifyRealEstatesSchedulesExist, verifyUserScheduleExists)
+schedulesRoutes.post('/', verifyToken ,verifyBody, verifyRealEstatesExist, verifyRealEstatesSchedulesExist, verifyUserScheduleExists)
 schedulesRoutes.get('/realEstate/:id', verifyToken, verifyAdmin)
