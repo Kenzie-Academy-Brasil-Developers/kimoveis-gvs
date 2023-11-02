@@ -1,11 +1,13 @@
 import { Repository } from "typeorm";
 import { Address, Category, RealEstate, Schedule, User } from "./entities";
 import { AppDataSource } from "./data-source";
-import { RealEstateRepo } from "./interfaces/realEstates.interface";
+import { AddressRepo, RealEstateRepo } from "./interfaces/realEstates.interface";
 import { CategoryRepo } from "./interfaces/categories.interface";
+import { ScheduleRepo } from "./interfaces/schedules.interface";
+import { UserRepo } from "./interfaces/users.interface";
 
-export const userRepo : Repository<User> = AppDataSource.getRepository(User)
-export const schedulesRepo : Repository<Schedule> = AppDataSource.getRepository(Schedule)
+export const userRepo : UserRepo = AppDataSource.getRepository(User)
+export const schedulesRepo : ScheduleRepo = AppDataSource.getRepository(Schedule)
 export const realEstateRepo : RealEstateRepo = AppDataSource.getRepository(RealEstate)
 export const categorieRepo : CategoryRepo = AppDataSource.getRepository(Category)
-export const addressRepo : Repository<Address> = AppDataSource.getRepository(Address)
+export const addressRepo : AddressRepo = AppDataSource.getRepository(Address)
