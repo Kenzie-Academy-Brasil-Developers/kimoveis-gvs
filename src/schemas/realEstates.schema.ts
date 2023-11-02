@@ -3,7 +3,7 @@ import { z } from "zod";
 export const realEstateSchema = z.object({
     id: z.number().positive(),
     sold: z.boolean().default(false),  
-    value: z.number().default(0),
+    value: z.number().or(z.string()).default(0),
     size: z.number(),
     createdAt: z.string(),
     updatedAt : z.string(),
