@@ -1,6 +1,5 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import Address from "./addresses.entity";
-import Category from "./categories.entity";
 import Schedule from "./schedules.entity";
 import Categorie from "./categories.entity";
 
