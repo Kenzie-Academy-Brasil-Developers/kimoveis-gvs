@@ -1,7 +1,7 @@
 import { DeepPartial, Repository } from "typeorm";
 import { User } from "../entities";
 import { z } from "zod";
-import { createUserSchema, updateUserSchema, userLoginSchema, userReturnSchema, userWithoutAdmin } from "../schemas/users.schema";
+import { createUserSchema, userLoginSchema, userReturnSchema, userWithoutAdmin } from "../schemas/users.schema";
 
 export type UserRepo = Repository<User>
 export type UserCreate = z.infer<typeof createUserSchema>
