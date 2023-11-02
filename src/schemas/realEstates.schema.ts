@@ -16,3 +16,9 @@ export const realEstateSchema = z.object({
     }),
     categoryId: z.number().positive().int()
 })
+export const createRealEstateSchema = realEstateSchema.omit({
+    id: true,
+    createdAt: true,
+    updatedAt: true,
+})
+
