@@ -1,6 +1,8 @@
 import { z } from "zod";
 
-const categorieSchema = z.object({
+export const categorieSchema = z.object({
     id: z.number().positive(),
     name: z.string().max(45)
 })
+
+export const createCategorySchema = categorieSchema.omit({id: true})
