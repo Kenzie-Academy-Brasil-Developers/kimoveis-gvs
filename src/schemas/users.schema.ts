@@ -17,3 +17,4 @@ export const createUserSchema = userSchema.pick({
     password: true
 })
 export const userWithoutAdmin = createUserSchema.omit({admin: true})
+export const updateUserSchema = userWithoutAdmin.partial()
