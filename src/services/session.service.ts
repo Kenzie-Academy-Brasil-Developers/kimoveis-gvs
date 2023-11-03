@@ -17,6 +17,6 @@ export const loginService = async(data: UserLogin): Promise<LoginReturn> => {
         {email: user.email, admin: user.admin},
         process.env.SECRET_KEY!,
         {subject: user.id.toString(), expiresIn: process.env.EXPIRES_IN}
-        
     )
+    return {token}
 }
