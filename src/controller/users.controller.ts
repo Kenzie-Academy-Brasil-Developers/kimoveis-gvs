@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createUserService, readAllUsersService, updateUserService } from "../services/users.service";
+import { createUserService, readAllUsersService, softDeleteUserService, updateUserService } from "../services/users.service";
 
 export const createUserController = async(req: Request, res: Response): Promise<Response> => {
     const user = await createUserService(req.body)
@@ -13,5 +13,10 @@ export const readAllUsersController = async(req: Request, res: Response): Promis
 export const updateUserController = async(req: Request, res: Response): Promise<Response> => {
     const {user} = res.locals;
     const userUpdate = await updateUserService(req.body, user)
+    return res.status(200).json(userUpdate)
+}
+export const softDeleteUserController = async(req: Request, res: Response): Promise<Response> => {
+    const {user } = res.locals
+    await softDeleteUserService(user)
     return res.status(204).json()
 }
