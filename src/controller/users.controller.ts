@@ -7,6 +7,7 @@ export const createUserController = async(req: Request, res: Response): Promise<
 }
 export const readAllUsersController = async(req: Request, res: Response): Promise<Response> => {
     const users = await readAllUsersService()
+    
     return res.status(200).json(users)
 }
 
@@ -14,7 +15,7 @@ export const updateUserController = async(req: Request, res: Response): Promise<
     const {user} = res.locals;
 
     const userUpdate = await updateUserService(req.body, user)
-    
+
     return res.status(200).json(userUpdate)
 }
 export const softDeleteUserController = async(req: Request, res: Response): Promise<Response> => {
