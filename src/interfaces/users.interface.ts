@@ -12,3 +12,4 @@ export type UserReturn = z.infer<typeof userReturnSchema>
 export type UserLogin = z.infer<typeof userLoginSchema>
 export type LoginReturn = {token : string}
 export type UserWithoutPassword = z.infer<typeof userReturnSchema>
+export type UserRead = UserReturn[]
