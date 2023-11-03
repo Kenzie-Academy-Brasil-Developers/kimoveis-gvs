@@ -20,3 +20,7 @@ export const updateUserService = async (data: UserUpdate, user: User): Promise<U
     
     return userReturnSchema.parse(userUpdate)
 }
+
+export const softDeleteUserService = async (user: User): Promise<void> => {
+    await userRepo.softRemove(user)
+}
