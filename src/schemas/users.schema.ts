@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const userSchema = z.object({
     id: z.number().positive(),
-    name: z.string().max(45).nullish(),
+    name: z.string().max(45),
     email: z.string().max(45).email(),
     admin: z.boolean().default(false),
     password: z.string().min(1).max(120),
@@ -18,7 +18,7 @@ export const createUserSchema = userSchema.pick({
 })
 export const userWithoutAdmin = createUserSchema.omit({admin: true})
 export const updateUserSchema = userWithoutAdmin.partial()
-export const userReturnSchema = userSchema.omit({password: true})
+export const userReturnSchema = userSchema.omit({password: true, createdAt: true, updatedAt: true})
 export const userReadSchema = userReturnSchema.array()
 export const userLoginSchema = userSchema.pick({
     email: true,
