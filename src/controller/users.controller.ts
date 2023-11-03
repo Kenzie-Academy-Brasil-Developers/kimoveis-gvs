@@ -12,8 +12,9 @@ export const readAllUsersController = async(req: Request, res: Response): Promis
 
 export const updateUserController = async(req: Request, res: Response): Promise<Response> => {
     const {user} = res.locals;
-    
+
     const userUpdate = await updateUserService(req.body, user)
+    
     return res.status(200).json(userUpdate)
 }
 export const softDeleteUserController = async(req: Request, res: Response): Promise<Response> => {
