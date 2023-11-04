@@ -12,7 +12,7 @@ export default class RealEstate{
     sold: boolean
 
     @Column({ type: 'decimal', precision: 12, scale: 2, nullable: false, default: 0 })
-    value: number
+    value: number | string
 
     @Column({nullable:false})
     size: number
