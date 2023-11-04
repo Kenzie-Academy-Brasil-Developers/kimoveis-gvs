@@ -10,3 +10,4 @@ export const createRealEstateService = async(data: CreateRealEstate): Promise<Re
     const realEstate : RealEstate = await realEstateRepo.save({...data, address, category: category!})
     return realEstate
 }
+export const readRealEstateService = async () : Promise<RealEstate> =>
