@@ -13,3 +13,15 @@ export const createScheduleService = async(data: CreateSchedule, userId: number)
 
     await schedulesRepo.save({...data, realEstate: realEstate!, user: user!})
 }
+
+export const readAllScheduleRealEstateService = async(id: number) : Promise<RealEstate> => {
+    const realEstate : RealEstate | null = await realEstateRepo.findOne({
+        where: {
+            id: id
+        },
+        relations:{
+            shedule: 
+        }
+    })
+
+}
