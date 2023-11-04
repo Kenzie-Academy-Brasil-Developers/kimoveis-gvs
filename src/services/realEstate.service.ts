@@ -1,6 +1,6 @@
 import { Address, Category, RealEstate } from "../entities";
 import AppError from "../errors/AppError.error";
-import {AddressRepo, CreateRealEstate, RealEstateRead, RealEstateRepo  } from "../interfaces/realEstates.interface";
+import {AddressRepo, CreateRealEstate, RealEstateRepo  } from "../interfaces/realEstates.interface";
 import { addressRepo, categorieRepo, realEstateRepo  } from "../repositories";
 
 export const createRealEstateService = async(data: CreateRealEstate): Promise<RealEstate> => {
@@ -10,12 +10,10 @@ export const createRealEstateService = async(data: CreateRealEstate): Promise<Re
     const realEstate : RealEstate = await realEstateRepo.save({...data, address, category: category!})
     return realEstate
 }
-export const readRealEstateService = async () : Promise<RealEstateRead> => {
+export const readRealEstateService = async () : Promise<RealEstate[]> => {
     return await realEstateRepo.find({
         relations: {
             address: true
         }
     })
-
-
 }
