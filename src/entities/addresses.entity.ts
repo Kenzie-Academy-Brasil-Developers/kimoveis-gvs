@@ -13,7 +13,7 @@ export default class Address{
     zipCode:string
 
     @Column({nullable: false})
-    number: number
+    number: string
 
     @Column({length: 20, nullable: false})
     city:string
