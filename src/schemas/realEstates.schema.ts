@@ -21,4 +21,3 @@ export const createRealEstateSchema = realEstateSchema.omit({
     createdAt: true,
     updatedAt: true,
 })
-export const readRealEstate = realEstateSchema.array()
