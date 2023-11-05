@@ -13,14 +13,14 @@ export default class Address{
     zipCode:string
 
     @Column({nullable: false})
-    number: string
+    number: number
 
     @Column({length: 20, nullable: false})
     city:string
 
-    @Column({length: 2,nullable: false})
+    @Column({length: 2, nullable: false})
     state: string
     
     @OneToOne(() => RealEstate, (realEstate) => realEstate.address)
-    realEstate: Array<Address>
+    realEstate: Array<RealEstate>
 }
