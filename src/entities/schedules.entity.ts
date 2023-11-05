@@ -13,7 +13,7 @@ export default class Schedule {
   @Column({ type: "time" })
   hour: string;
 
-  @ManyToOne(() => RealEstate, (realEstate) => realEstate.shedule)
+  @ManyToOne(() => RealEstate, (realEstate) => realEstate.schedule)
   realEstate: RealEstate;
 
   @ManyToOne(() => User, (user) => user.shedule, {onDelete: 'CASCADE'})

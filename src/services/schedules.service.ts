@@ -20,8 +20,14 @@ export const readAllScheduleRealEstateService = async(id: number) : Promise<Real
             id: id
         },
         relations:{
-            shedule: 
+            schedule:{
+                user: true
+            }, 
+            address: true,
+            category: true
         }
+        
     })
-
+    if(!realEstate) throw new AppError ('Real Estate not found',404)
+    return realEstate
 }

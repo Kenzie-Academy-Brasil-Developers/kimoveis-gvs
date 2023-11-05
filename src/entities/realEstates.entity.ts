@@ -5,6 +5,7 @@ import Categorie from "./categories.entity";
 
 @Entity('realEstates')
 export default class RealEstate{
+    
     @PrimaryGeneratedColumn('increment')
     id:number 
 
@@ -23,7 +24,7 @@ export default class RealEstate{
     @UpdateDateColumn({type: 'date',unique: true, nullable: false})
     updatedAt: string
 
-    @OneToMany(()=> Schedule , (shedule) => shedule.realEstate)
+    @OneToMany(()=> Schedule , (schedule) => schedule.realEstate)
     schedule: Array<Schedule>
 
     @OneToOne(() => Address , (address) => address.realEstate )
