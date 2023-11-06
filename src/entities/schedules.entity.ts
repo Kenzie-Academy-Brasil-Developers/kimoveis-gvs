@@ -4,7 +4,7 @@ import RealEstate from "./realEstates.entity";
 
 @Entity("schedules")
 export default class Schedule {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('increment')
   id: number;
 
   @Column({ type: "date" })
@@ -16,7 +16,7 @@ export default class Schedule {
   @ManyToOne(() => RealEstate, (realEstate) => realEstate.schedule)
   realEstate: RealEstate;
 
-  @ManyToOne(() => User, (user) => user.shedule, {onDelete: 'CASCADE'})
+  @ManyToOne(() => User, (user) => user.schedule, {onDelete: 'CASCADE'})
   user: User;
 }
     

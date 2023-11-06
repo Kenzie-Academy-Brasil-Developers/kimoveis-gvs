@@ -1,6 +1,6 @@
 import { Address, Category, RealEstate } from "../entities";
 import AppError from "../errors/AppError.error";
-import {AddressRepo, CreateRealEstate, RealEstateRepo  } from "../interfaces/realEstates.interface";
+import {CreateRealEstate} from "../interfaces/realEstates.interface";
 import { addressRepo, categorieRepo, realEstateRepo  } from "../repositories";
 
 export const createRealEstateService = async(data: CreateRealEstate): Promise<RealEstate> => {

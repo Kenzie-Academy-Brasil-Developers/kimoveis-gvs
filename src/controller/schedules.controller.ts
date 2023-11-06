@@ -4,7 +4,7 @@ import { createScheduleService, readAllScheduleRealEstateService } from "../serv
 export const  createScheduleController = async(req: Request, res: Response): Promise<Response> => {
     const {sub} = res.locals.decoded
     await createScheduleService(req.body, sub)
-    return res.status(200).json({message: 'Schedule created'})
+    return res.status(201).json({message: 'Schedule created'})
 }                                                      
 export const  readAllScheduleRealEstateController = async(req: Request, res: Response): Promise<Response> => {
     const {id} = req.params
