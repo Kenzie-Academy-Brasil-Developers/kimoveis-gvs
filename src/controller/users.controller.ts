@@ -13,7 +13,7 @@ export const readAllUsersController = async(req: Request, res: Response): Promis
 }
 
 export const updateUserController = async(req: Request, res: Response): Promise<Response> => {
-    const {user} = res.locals;
+    const {user} = res.locals
 
     const userUpdate = await updateUserService(req.body, user)
 
