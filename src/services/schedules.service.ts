@@ -5,7 +5,7 @@ import { realEstateRepo, schedulesRepo, userRepo } from "../repositories";
 
 export const createScheduleService = async(data: CreateSchedule, userId: number): Promise<Schedule> => {
     const newDate = new Date(data.date).getDay ()
-    if((newDate === 0) || (newDate === 6)) throw new AppError('Invalide date, work days are monday to friday',400)
+    if((newDate === 0) || (newDate === 6)) throw new AppError('Invalid date, work days are monday to friday',400)
     const time = Number(data.hour.split(':')[0])
     if((time < 8) || (time > 18)) throw new AppError('Invalid hour, available times are 8AM to 18PM', 400)
     const realEstate : RealEstate | null = await realEstateRepo.findOneBy({id: Number(data.realEstateId)})
@@ -15,10 +15,10 @@ export const createScheduleService = async(data: CreateSchedule, userId: number)
     return schedule
 }
 
-export const readAllScheduleRealEstateService = async(id: number) : Promise<RealEstate> => {
+export const readAllScheduleRealEstateService = async(id: Number) : Promise<RealEstate> => {
     const realEstate : RealEstate | null = await realEstateRepo.findOne({
         where: {
-            id: id
+            id: Number(id)
         },
         relations:{
             schedule:{

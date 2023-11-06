@@ -6,4 +6,4 @@ import { createScheduleSchema } from "../schemas/schedules.schema";
 
 export const schedulesRoutes : Router = Router()
 schedulesRoutes.post('/', verifyToken, verifyBody(createScheduleSchema), verifyRealEstatesExist, verifyRealEstatesSchedulesExist, verifyUserScheduleExists, createScheduleController)
-schedulesRoutes.get('/realEstate/:id', verifyToken, verifyAdmin, verifyRealEstatesExist ,readAllScheduleRealEstateController)
+schedulesRoutes.get('/realEstate/:id', verifyToken, verifyAdmin,verifyPermissions, verifyRealEstatesExist ,readAllScheduleRealEstateController)

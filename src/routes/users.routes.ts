@@ -5,7 +5,7 @@ import { createUserController, readAllUsersController, softDeleteUserController,
 import { createUserSchema, updateUserSchema, userWithoutAdmin } from "../schemas/users.schema";
 
 export const usersRoutes : Router = Router()
-usersRoutes.post('/', verifyBody(createUserSchema),verifyUniqueUserEmail ,createUserController)
+usersRoutes.post('/', verifyUniqueUserEmail,verifyBody(createUserSchema) ,createUserController)
 usersRoutes.get('/', verifyToken, verifyAdmin, readAllUsersController)
 usersRoutes.patch('/:id', verifyToken, verifyUserExists ,verifyPermissions, verifyBody(updateUserSchema), updateUserController)
 usersRoutes.delete('/:id', verifyToken, verifyUserExists, verifyPermissions , softDeleteUserController)
