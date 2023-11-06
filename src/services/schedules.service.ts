@@ -15,13 +15,13 @@ export const createScheduleService = async(data: CreateSchedule, userId: number)
     return schedule
 }
 
-export const readAllScheduleRealEstateService = async(id: Number) : Promise<RealEstate> => {
+export const readAllScheduleRealEstateService = async(id: number) : Promise<RealEstate> => {
     const realEstate : RealEstate | null = await realEstateRepo.findOne({
         where: {
-            id: Number(id)
+            id
         },
         relations:{
-            schedule:{
+            schedules:{
                 user: true
             }, 
             address: true,
@@ -29,6 +29,6 @@ export const readAllScheduleRealEstateService = async(id: Number) : Promise<Real
         }
         
     })
-    if(!realEstate) throw new AppError ('Real Estate not found',404)
+    if(!realEstate) throw new AppError ('RealEstate not found',404)
     return realEstate
 }

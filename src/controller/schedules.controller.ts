@@ -8,7 +8,6 @@ export const  createScheduleController = async(req: Request, res: Response): Pro
 }                                                      
 export const  readAllScheduleRealEstateController = async(req: Request, res: Response): Promise<Response> => {
     const {id} = req.params
-    
     const realEstate = await readAllScheduleRealEstateService(Number(id))
     return res.status(200).json(realEstate)
 }

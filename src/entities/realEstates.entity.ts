@@ -7,7 +7,7 @@ import Categorie from "./categories.entity";
 export default class RealEstate{
     
     @PrimaryGeneratedColumn('increment')
-    id:number 
+    id : number 
 
     @Column({default: false})
     sold: boolean
@@ -17,15 +17,15 @@ export default class RealEstate{
 
     @Column()
     size: number
-
+    
     @CreateDateColumn({type: "date" })
     createdAt: string
     
     @UpdateDateColumn({type: "date"})
     updatedAt: string
 
-    @OneToMany(()=> Schedule , (schedule) => schedule.realEstate)
-    schedule: Array<Schedule>
+    @OneToMany(()=> Schedule , (schedules) => schedules.realEstate)
+    schedules: Array<Schedule>
 
     @OneToOne(() => Address , (address) => address.realEstate )
     @JoinColumn()
