@@ -26,7 +26,7 @@ export const verifyToken = (req: Request, res: Response, next: NextFunction) : v
 export const verifyAdmin = (req: Request, res: Response, next: NextFunction) : void => {
     const {admin} = res.locals.decoded
 
-    if(!admin) throw new AppError('Insufficient permissions', 403)
+    if(!admin) throw new AppError('Insufficient permission', 403)
 
     return next()
 }

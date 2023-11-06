@@ -19,8 +19,8 @@ export const readAllUsersService = async (): Promise<UserRead> => {
 
 export const updateUserService = async (data: UserUpdate, user: User): Promise<UserReturn> => {
     const userUpdate : User = userRepo.create({...user, ...data})
-    await userRepo.save(userUpdate)
-    return userReturnSchema.parse(userUpdate)
+    const newUser = await userRepo.save(userUpdate)
+    return userReturnSchema.parse(newUser)
 }
 
 export const softDeleteUserService = async (user: User): Promise<void> => {

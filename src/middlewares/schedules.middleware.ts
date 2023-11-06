@@ -12,7 +12,7 @@ export const verifyRealEstatesExist = async(req: Request, res: Response, next: N
         }
     })
     
-    if(!realEstateExist) throw new AppError('Real Estate not found',404)
+    if(!realEstateExist) throw new AppError('RealEstate not found',404)
 
     return next()
 }
@@ -22,7 +22,7 @@ export const verifyRealEstatesSchedulesExist = async (req: Request, res: Respons
 
     const schedule = await schedulesRepo.findOneBy({realEstate: { id: Number(realEstateId)}, hour, date})
 
-    if(schedule) throw new AppError('Schedule to this Real Estate at this date and time already exists', 409 )
+    if(schedule) throw new AppError('Schedule to this real estate at this date and time already exists', 409 )
 
     return next()
 }
