@@ -7,16 +7,16 @@ export default class User{
     @PrimaryGeneratedColumn('increment')
     id: number
 
-    @Column({length: 45, nullable: false})
+    @Column({length: 45})
     name: string
 
-    @Column({length: 45, nullable: false, unique: true})
+    @Column({length: 45, unique: true})
     email: string
 
-    @Column({nullable: false, default: false})
+    @Column({default: false})
     admin: boolean
 
-    @Column({nullable: false, length: 120})
+    @Column({length: 120})
     password: string
 
     @CreateDateColumn({type: "date"})
@@ -25,7 +25,7 @@ export default class User{
     @UpdateDateColumn({type: "date"})
     updatedAt: string
 
-    @DeleteDateColumn({type: "date", nullable: true})
+    @DeleteDateColumn({type: "date"})
     deletedAt: string | null
     
     @OneToMany(() => Schedule, (schedules) => schedules.user)

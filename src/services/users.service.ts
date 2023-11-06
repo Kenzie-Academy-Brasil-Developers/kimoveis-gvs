@@ -6,9 +6,9 @@ import { userReadSchema, userReturnSchema } from "../schemas/users.schema";
 export const createUserService = async(data: UserCreate ): Promise<UserReturn> => {
     const user : User = userRepo.create(data)
 
-    await userRepo.save(user)
+    const newuser = await userRepo.save(user)
     
-    return userReturnSchema.parse(user) 
+    return userReturnSchema.parse(newuser) 
 }
 
 export const readAllUsersService = async (): Promise<UserRead> => {

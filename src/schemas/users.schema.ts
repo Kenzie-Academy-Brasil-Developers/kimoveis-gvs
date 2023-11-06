@@ -4,11 +4,11 @@ export const userSchema = z.object({
     id: z.number().positive(),
     name: z.string().max(45),
     email: z.string().max(45).email(),
-    admin: z.boolean().default(false),
     password: z.string().min(1).max(120),
-    createdAt: z.date(),
-    updatedAt: z.date(),
-    deletedAt: z.date().nullable(),
+    admin: z.boolean().default(false),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    deletedAt: z.string().nullable(),
 })
 export const createUserSchema = userSchema.pick({
     name: true,
