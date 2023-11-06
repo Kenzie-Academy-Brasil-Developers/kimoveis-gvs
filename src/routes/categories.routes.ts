@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { verifyCategoryExists, verifyUniqueCategoryName } from "../middlewares/categories.middleware";
-import { verifyAdmin, verifyBody, verifyPermissions, verifyToken } from "../middlewares/globals.middleware";
+import { verifyBody, verifyPermissions, verifyToken } from "../middlewares/globals.middleware";
 import { createCategoryController, readCategoryController, readRealEstatesByCategoryController } from "../controller/category.controller";
 import { createCategorySchema } from "../schemas/categories.schema";
 

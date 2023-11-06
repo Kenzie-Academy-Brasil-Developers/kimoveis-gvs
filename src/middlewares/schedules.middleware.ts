@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { Address, RealEstate, Schedule } from "../entities";
+import { RealEstate, Schedule } from "../entities";
 import AppError from "../errors/AppError.error";
 import { realEstateRepo, schedulesRepo } from "../repositories";
 
