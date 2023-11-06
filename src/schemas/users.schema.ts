@@ -10,11 +10,11 @@ export const userSchema = z.object({
     updatedAt: z.string(),
     deletedAt: z.string().nullable(),
 })
-export const createUserSchema = userSchema.pick({
-    name: true,
-    email: true,
-    admin: true,
-    password: true
+export const createUserSchema = userSchema.omit({
+    id:true,
+    createdAt:true,
+    updatedAt:true,
+    deletedAt:true,
 })
 export const userWithoutAdmin = createUserSchema.omit({admin: true})
 export const updateUserSchema = userWithoutAdmin.partial()

@@ -3,20 +3,19 @@ import User from "./users.entity";
 import RealEstate from "./realEstates.entity";
 
 @Entity("schedules")
-export default class Schedule {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export default class Schedule{
+  @PrimaryGeneratedColumn('increment')
+  id: number
   @Column({ type: "date" })
-  date: string;
+  date: string
 
   @Column({ type: "time" })
-  hour: string;
+  hour: string
 
-  @ManyToOne(() => RealEstate, (realEstate) => realEstate.schedule)
-  realEstate: RealEstate;
+  @ManyToOne(() => RealEstate, (realEstate) => realEstate.schedules)
+  realEstate: RealEstate
 
-  @ManyToOne(() => User, (user) => user.shedule, {onDelete: 'CASCADE'})
+  @ManyToOne(() => User, (user) => user.schedule, {onDelete: 'CASCADE'})
   user: User;
 }
     

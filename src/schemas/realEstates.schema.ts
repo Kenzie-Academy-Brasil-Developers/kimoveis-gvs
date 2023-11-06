@@ -3,8 +3,8 @@ import { z } from "zod";
 export const realEstateSchema = z.object({
     id: z.number().positive(),
     sold: z.boolean().default(false),  
+    size: z.number().positive(),
     value: z.number().or(z.string()).default(0),
-    size: z.number(),
     createdAt: z.string(),
     updatedAt : z.string(),
     address: z.object({
@@ -20,4 +20,7 @@ export const createRealEstateSchema = realEstateSchema.omit({
     id: true,
     createdAt: true,
     updatedAt: true,
+
 })
+
+export const readRealEstateSchema = realEstateSchema.array()

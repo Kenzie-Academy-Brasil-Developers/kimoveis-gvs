@@ -9,5 +9,6 @@ export const scheduleSchema = z.object({
 })
 export const createScheduleSchema = scheduleSchema.omit({
     id: true,
-    userId: true
+    userId: true,
+    
 })

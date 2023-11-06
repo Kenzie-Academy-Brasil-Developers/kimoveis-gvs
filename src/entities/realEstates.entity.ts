@@ -7,25 +7,25 @@ import Categorie from "./categories.entity";
 export default class RealEstate{
     
     @PrimaryGeneratedColumn('increment')
-    id:number 
+    id : number 
 
-    @Column({nullable: false, default : false})
+    @Column({default: false})
     sold: boolean
 
-    @Column({ type: 'decimal', precision: 12, scale: 2, nullable: false, default: 0 })
+    @Column({ type: "decimal", precision: 12, scale: 2, default: 0 })
     value: number | string
 
-    @Column({nullable:false})
+    @Column()
     size: number
-
-    @CreateDateColumn({type: 'date', nullable: false})
+    
+    @CreateDateColumn({type: "date" })
     createdAt: string
     
-    @UpdateDateColumn({type: 'date',unique: true, nullable: false})
+    @UpdateDateColumn({type: "date"})
     updatedAt: string
 
-    @OneToMany(()=> Schedule , (schedule) => schedule.realEstate)
-    schedule: Array<Schedule>
+    @OneToMany(()=> Schedule , (schedules) => schedules.realEstate)
+    schedules: Array<Schedule>
 
     @OneToOne(() => Address , (address) => address.realEstate )
     @JoinColumn()
