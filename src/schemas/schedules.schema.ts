@@ -12,3 +12,4 @@ export const createScheduleSchema = scheduleSchema.omit({
     userId: true,
     
 })
+
