@@ -11,3 +11,5 @@ export const schedulesRepo : ScheduleRepo = AppDataSource.getRepository(Schedule
 export const realEstateRepo : RealEstateRepo = AppDataSource.getRepository(RealEstate)
 export const categorieRepo : CategoryRepo = AppDataSource.getRepository(Category)
 export const addressRepo : AddressRepo = AppDataSource.getRepository(Address)
+
+
