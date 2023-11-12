@@ -5,7 +5,7 @@ import RealEstate from "./realEstates.entity";
 export default class Address{
     @PrimaryGeneratedColumn('increment')
     id:number
-
+    
     @Column({length: 45, nullable: false})
     street:string
 
